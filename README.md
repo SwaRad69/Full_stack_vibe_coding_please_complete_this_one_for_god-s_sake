@@ -1,0 +1,1 @@
+# Full_stack_vibe_coding_please_complete_this_one_for_god-s_sake
