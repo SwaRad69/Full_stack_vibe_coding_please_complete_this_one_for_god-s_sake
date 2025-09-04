@@ -2,7 +2,7 @@
   "name": "full_stack_vibe_coding_please_complete_this_one_for_god-s_sake",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
