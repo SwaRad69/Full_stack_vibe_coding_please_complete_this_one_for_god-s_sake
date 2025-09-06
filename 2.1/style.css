@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+  /* the flex is made to 0.5 intially 
+  which is overidden by the active class which comes after wards and make sit big
+
+  .panel.active {
+  flex: 5;
+  
+} 
+  */
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+  /* all the text when made small is made opaque 0 when small and opaque 1 when active so that it gets the charestristuc grow kinda thing */
+}
+/* in the current website 
+the h3 given is absolute and the panel is relative
+so the absolute sticks to nearest preant which panel and stays at the bottom left as a text */
+/* have to learn about postions properly once
+bro code ftw
+https://www.youtube.com/watch?v=G4AWXOr4W-k
+
+realtive- moves right ltb to the current postion
+fixed- always stays in the same place even when you scroll right ltb
+absolute- moves right ltb to the nearest parent with a position other than static
+static- default position for every element 
+sticky- toggles between relative and fixed, depending on the scroll position its like a mix of both fixed and relative
+*/
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+/* when the width of the webiste or device is less than 480px 
+the number of images reduces to 3 as 4 and 5 is declared none */
