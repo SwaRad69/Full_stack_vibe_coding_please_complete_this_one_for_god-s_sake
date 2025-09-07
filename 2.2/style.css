@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+  /* This code defines two global color variables that can be reused anywhere in your CSS for filling or emptying the border of lines, such as in a progress bar. */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* this brings all the content to the center tof the page */
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  /* relative - it acts as a pseudo parent to the before wala class and its before aranges according to this class  */
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+    /* its the progress line n the background */
+  content: '';
+  background-color: var(--line-border-empty);
+  /* global variable which was defined at the start */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  /* adjusts the progress line line so that it can aligns wth the centre of te circle */
+  height: 4px;
+  width: 100%;
+  z-index: -1
+  /* gives the lines the lower priroirt than the circle so that the line comes below the cirlcle */
+}
+
+.progress {
+  background-color: var(--line-border-fill);
+  /* responsible for the filled line in the line over the backgorund grey connecting line */
+  /* the position of this and the pc before line is both the same */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  /* it gets the mor prrioty because it comes afterwards   */
+  transition: 0.4s ease;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty);
+  /* gives the same background as the unfilled progression line */
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+  /* chnages it shape when clicked for like 1 s */
+}
+
+.btn:focus {
+  outline: 0;
+  /* the border after the button is clicked */
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}

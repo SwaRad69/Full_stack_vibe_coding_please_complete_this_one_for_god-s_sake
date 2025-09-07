@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Active Demo</title>
+  <style>
+    .step-btn {
+      padding: 10px 20px;
+      margin: 5px;
+      border: 1px solid #333;
+      background: #eee;
+      cursor: pointer;
+    }
+
+    .step-btn.active {
+      background: dodgerblue;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="button-group">
+    <button class="step-btn">Step 1</button>
+    <button class="step-btn">Step 2</button>
+    <button class="step-btn">Step 3</button>
+    <button class="step-btn">Step 4</button>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.step-btn')
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // remove "active" from all
+        buttons.forEach(b => b.classList.remove('active'))
+        // add "active" to the clicked one
+        btn.classList.add('active')
+      })
+    })
+  </script>
+</body>
+</html>
